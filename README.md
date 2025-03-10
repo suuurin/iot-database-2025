@@ -389,10 +389,42 @@ IoT 개발자 데이터베이스 저장소
     - 서브쿼리까지
 
 ## 8일차
-- 실무실습 : []()
-    - 서브쿼리부터
+- 실무실습 : [SQL](./day08/db01_쿼리실습.sql)
+    - 서브쿼리부터    
 - 데이터모델링 실습
-- 파이썬 GUI DB 연동
+    - 병원업무관리 ERD 
+        - 요구사항으로 개체와 관계를 정립. 계체에 속하는 속성들, 식별자 결정
+        - 테이블 명세서 작성(엑셀, 워드)
+        - ERwin | Workbench 모델링에서 ERD 작성
+        - 생성스크립트 : [SQL](./day08/db03_병원업무관리_스키마.sql)
+        - Workbench에서 DB생성 후 위 스크립트 실행. DB구현
+
+    <img src="./image/db006.png" width="800">
+
+    - SQL 연습
 
 ## 9일차
+- tkinter DB연동 GUI앱 개발 : [Python](./day09/students_regapp.py)
+    1. MySQL madang 데이터베이스 사용하는 madang 사용자 생성, 권한
+    2. madang DB에 students 테이블 생성 및 더미 데이터 추가
+        ```sql
+        drop table if exists students;
+        create table students (
+            std_id integer primary key auto_increment,  -- auto_increment는 MySQL 옵션
+            std_name varchar(100) not null,
+            std_mobile varchar(20) null,
+            std_regyear int not null
+        );
+        -- 더미데이터 추가
+        insert into students (std_name, std_mobile, std_regyear)
+        values ('홍길동', '010-9999-8888', 2020);
+        ```
+    3. tkinter 템플릿코드 작성 - 기본적인 GUI앱 틀
+    <img src='./image/db007.png' width="700">
+
+    4. 데이터베이스 CRUD 함수 구현
+        
+        <img src='./image/db008.png' width='700'>
+- 데이터베이스 연습
+    - SQL, 모델링 연습
 - 코딩테스트
